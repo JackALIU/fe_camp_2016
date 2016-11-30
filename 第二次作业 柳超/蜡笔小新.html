@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .img-box{
+            width: 150px;
+            height: 150px;
+            left:250px;
+            position: relative;
+            top: 100px;
+        }
+        .img-box img{
+            position: relative;
+            width: 300px;
+            height: 350px;
+        }
+        .btn-box{
+            width: 140px;
+            float: right;
+            margin: 10px;
+            margin-right: 400px;
+        }
+        .btn-box button{
+            width: 200px;
+            height: 40px;
+            margin: 50px;
+        }
+        body{
+            background-image:url("image/xx-bg.png");
+        }
+        .a1{
+            background-image: url("image/btn-blue.png");
+            color: darkslategrey ;
+            font-family: 华文行楷;
+            font-size: 35px;
+}
+        .a2{
+            background-image: url("image/btn-gray.png");
+            color: aquamarine;
+            font-family: 华文行楷;
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body id="bg">
+<div class="img-box" >
+    <img id="img" src="image\xx.png">
+</div>
+<div class="btn-box">
+    <button id="xx" class="a1">小新</button>
+    <button id="bw" class="a2">巴卫</button>
+</div>
+<script>
+    var btns=document.getElementsByTagName("button");
+    var img=document.getElementById("img");
+    var BG=document.getElementById( "bg");
+
+    function  SwitchPicture(id) {
+        img.setAttribute("src", "image/" + id + ".png");
+       BG .style.backgroundImage ="url('image/"+id+"-bg.png')";
+        for(i=0;i<btns.length;i++){
+            if(btns[i].id==id){
+                btns[i].className= "a1"
+            }
+            else {
+                btns[i].className= "a2"
+            }
+        }
+    }
+
+    for(var i=0;i<btns.length;i++) {
+        btns[i].onclick = function () {
+            var id = this.id;
+            SwitchPicture(id);
+
+            }
+        }
+</script>
+</body>
+</html>
